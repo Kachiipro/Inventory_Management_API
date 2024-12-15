@@ -17,7 +17,7 @@ class CategoryViewSet(ModelViewSet):
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
 
 class ItemViewSet(ModelViewSet):
     queryset = Item.objects.all()
