@@ -1,14 +1,18 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 from . import views 
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .views import MyTokenObtainPairView
+
 
 router = DefaultRouter()
-router.register('Item',views.ItemViewSet)
-router.register('Category',views.CategoryViewSet)
-router.register('User', views.UserViewSet)
-router.register('Role', views.RoleViewSet)
-router.register('Actionlogs', views.ActionViewSet)
+router.register('item',views.ItemViewSet, basename='')
+router.register('category',views.CategoryViewSet)
+router.register('Supplier',views.SupplierViewSet)
+router.register('user', views.UserViewSet)
+router.register('inventorylogs', views.ActionViewSet)
+router.register('inventory', views.InventoryLevelview, basename='Inventory-item')
 
 
 
-urlpatterns = [] + router.urls
+urlpatterns = [path('token/', TokenObtainPairView.as_view(), name= 'token_obtain_pair'),] + router.urls

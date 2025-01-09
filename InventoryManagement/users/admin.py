@@ -1,6 +1,14 @@
 from django.contrib import admin
-from .models import Role
+from django.contrib.auth.admin import UserAdmin
+from .models import User
 
-@admin.register(Role)
-class RoleAdmin(admin.ModelAdmin):
-    list_display = ('name', 'description', 'created_at', 'updated_at')
+
+
+# Register your models here.
+class CustomUserAdmin(UserAdmin):
+    model = User
+    list_display =('username', 'email')
+    
+    
+    
+admin.site.register(User, CustomUserAdmin)
