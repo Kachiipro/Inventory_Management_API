@@ -1,18 +1,1 @@
-django
-djangorestframework
-djangorestframework-simplejwt
-django-filter
-
-
-
-
-
-
-
-
-
-
-
-
-
 
